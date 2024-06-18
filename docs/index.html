@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DiffStyleTTS Demo</title>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="css/bulma.min.css">
+  <link rel="stylesheet" href="css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="css/bulma-slider.min.css">
+  <link rel="stylesheet" href="css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="js/fontawesome.all.min.js"></script>
+  <script src="js/bulma-carousel.min.js"></script>
+  <script src="js/bulma-slider.min.js"></script>
+  <script src="js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">DiffStyleTTS: Diffusion-Based Hierarchical Prosody Modeling for Text-to-Speech with Diverse and Controllable Styles</h1>
+            <!-- <div class="is-size-5 publication-authors"> -->
+              <!-- Paper authors -->
+              <!-- <span class="author-block">
+                <a>Jiaxuan Liu</a>,</span>
+              <span class="author-block">
+                <a>Zhaoci Liu</a>,</span>
+              <span class="author-block">
+                <a href="http://staff.ustc.edu.cn/~zhling" target="_blank">Zhenhua Ling</a>,</span> -->
+            <!-- </div> -->
+
+            <!-- <div class="is-size-5 publication-authors">
+              <span class="author-block">National Engineering Research Center of Speech and Language Information Processing <br> University of Science and Technology of China<br></span>
+            </div> -->
+
+            <!-- <div class="column has-text-centered">
+              <div class="publication-links"> -->
+                <!--                   Code Link. -->
+                <!-- <span class="link-block">
+                  <a href="https://github.com/yxlu-0102/AP-BWE" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+                </span> -->
+                <!--                   ArXiv Link -->
+                <!-- <span class="link-block">
+                  <a href="" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>Paper</span>
+                  </a>
+                </span>
+              </div>
+            </div> -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Human speech exhibits rich and flexible prosodic variations. 
+            To address the one-to-many mapping problem from text to prosody in a reasonable and flexible manner, 
+            we propose DiffStyleTTS, a multi-speaker acoustic model based on a conditional diffusion module and an
+            improved classifier-free guidance, 
+            which hierarchically models speech prosodic features, 
+            and controls different prosodic styles to guide prosody prediction.
+            Experiments show that our method outperforms all baselines in naturalness and
+            achieves superior synthesis speed compared to two diffusion-based baselines. 
+            Additionally, by adjusting the guiding scale, 
+            DiffStyleTTS effectively controls the guidance intensity of the synthetic prosody.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<br>
+<section class="hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-centered">
+        <h2 class="title is-3">Naturalness of Audio Samples from Various TTS Models</h2>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <table align = "center" style="text-align: center;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-centered">
+          <h2 class="title is-5">DiffStyleTTS Generates Two Samples from Different Terminal Conditions</h2>
+          <h2 class="title is-5">First Example</h2>
+        </div>
+      </div>
+    </div>
+    <br>
+    <tr>
+      <td style="text-align: center;"><b>Ground Truth</b></th>
+      <td style="text-align: center;"><b>DiffStyleTTS 1</b></th>
+      <td style="text-align: center;"><b>DiffStyleTTS 2</b></th>
+      <td style="text-align: center;"><b>w/o SC</b></th>
+      <td style="text-align: center;"><b>w/o IPE</b></th>
+    </tr>
+
+    <tr>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/Naturalness_1/GT.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/Naturalness_1/DiffStyleTTS_1.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/Naturalness_1/DiffStyleTTS_2.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/Naturalness_1/wo_SC.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/Naturalness_1/wo_IPE.wav" type="audio/wav"></audio></td>
+    </tr>
+
+    </tr> 
+      <td style="text-align: center;"><b>FastSpeech2</b></th>
+      <td style="text-align: center;"><b>FastSpeech2*</b></th>
+      <td style="text-align: center;"><b>Grad-TTS</b></th>
+      <td style="text-align: center;"><b>Guided-TTS</b></th>
+      <td style="text-align: center;"><b>w/o TEC</b></th>
+    </tr>
+
+    <tr>
+    <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/Naturalness_1/fs2.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/Naturalness_1/fs2_prosody.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/Naturalness_1/Grad-TTS.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/Naturalness_1/Guided-TTS.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/Naturalness_1/wo_TEC.wav" type="audio/wav"></audio></td>
+    </tr>
+  </table>
+  <br>
+
+  <table align = "center" style="text-align: center;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-centered">
+          <h2 class="title is-5">Second Example</h2>
+        </div>
+      </div>
+    </div>
+    <br>
+    <tr>
+      <td style="text-align: center;"><b>Ground Truth</b></th>
+      <td style="text-align: center;"><b>DiffStyleTTS 1</b></th>
+      <td style="text-align: center;"><b>DiffStyleTTS 2</b></th>
+      <td style="text-align: center;"><b>w/o SC</b></th>
+      <td style="text-align: center;"><b>w/o IPE</b></th>
+    </tr>
+
+    <tr>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/Naturalness_2/GT.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/Naturalness_2/DiffStyleTTS_1.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/Naturalness_2/DiffStyleTTS_2.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/Naturalness_2/wo_SC.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/Naturalness_2/wo_IPE.wav" type="audio/wav"></audio></td>
+    </tr>
+
+    </tr> 
+      <td style="text-align: center;"><b>FastSpeech2</b></th>
+      <td style="text-align: center;"><b>FastSpeech2*</b></th>
+      <td style="text-align: center;"><b>Grad-TTS</b></th>
+      <td style="text-align: center;"><b>Guided-TTS</b></th>
+      <td style="text-align: center;"><b>w/o TEC</b></th>
+    </tr>
+
+    <tr>
+    <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/Naturalness_2/fs2.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/Naturalness_2/fs2_prosody.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/Naturalness_2/Grad-TTS.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/Naturalness_2/Guided-TTS.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/Naturalness_2/wo_TEC.wav" type="audio/wav"></audio></td>
+    </tr>
+
+  </table>
+  <br>
+
+  <table align = "center" style="text-align: center;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-centered">
+          <h2 class="title is-5">Sampling Process of Normalized Explicit Prosodic Features for an Example</h2>
+        </div>
+      </div>
+    </div>
+    <br>
+    <tr>
+      <td><img src="demos/distribution/diff.gif" width="300px" height="192px"></td>
+    </tr>
+  </table>
+  <br>
+
+  <table align = "center" style="text-align: center;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-centered">
+          <h2 class="title is-5">DiffStyleTTS vs. FastSpeech2 Baseline: Probability Density Distribution of Explicit Prosodic Features</h2>
+        </div>
+      </div>
+    </div>
+    <br>
+    <tr>
+      <td style="text-align: center;"><b>Pitch</b></th>
+      <td style="text-align: center;"><b>Energy</b></th>
+      <td style="text-align: center;"><b>Duration</b></th>
+    </tr>
+
+    <tr>
+      <td><img src="demos/distribution/pitch.png" width="300px" height="192px"></td>
+      <td><img src="demos/distribution/energy.png" width="300px" height="192px"></td>
+      <td><img src="demos/distribution/duration.png" width="300px" height="192px"></td>
+    </tr>
+  </table>
+  <br>
+</section>
+
+<hr>
+<section class="hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-centered">
+        <h2 class="title is-3">Prosodic Control via Classifier-Free Guidance</h2>
+      </div>
+    </div>
+  </div>
+  <br>
+  <table align = "center" style="text-align: center;">
+
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-centered">
+          <h2 class="title is-5">Different Guiding Scale η</h2>
+        </div>
+      </div>
+    </div>
+    <br>
+    <tr>
+      <td style="text-align: center;"><b>η=1.0</b></th>
+      <td style="text-align: center;"><b>η=3.0</b></th>
+      <td style="text-align: center;"><b>η=5.0</b></th>
+      <td style="text-align: center;"><b>η=7.0</b></th>
+    </tr>
+
+    <tr>
+    <td><img src="demos/guiding_sacle/1.0.png" width="300px" height="192px"></td>
+    <td><img src="demos/guiding_sacle/3.0.png" width="300px" height="192px"></td>
+    <td><img src="demos/guiding_sacle/5.0.png" width="300px" height="192px"></td>
+    <td><img src="demos/guiding_sacle/7.0.png" width="300px" height="192px"></td>
+    </tr>
+
+    <tr>
+    <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/guiding_sacle/1.0.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/guiding_sacle/3.0.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/guiding_sacle/5.0.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/guiding_sacle/7.0.wav" type="audio/wav"></audio></td>
+    </tr>
+
+  </table>
+  <br>
+  <table align = "center" style="text-align: center;">
+
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-centered">
+          <h2 class="title is-5">Different Hyperparameter γ with η=7.0</h2>
+        </div>
+      </div>
+    </div>
+    <br>
+    <tr>
+      <td style="text-align: center;"><b>γ=0, Phoneme Distortion Exists</b></th>
+      <td style="text-align: center;"><b>γ=0.4, Alleviating Phoneme Distortion</b></th>
+      <td style="text-align: center;"><b>γ=0.7, Resolving Phoneme Distortion</b></th>
+    </tr>
+
+    <tr>
+    <td><img src="demos/gama/0.png" width="300px" height="192px"></td>
+    <td><img src="demos/gama/0.4.png" width="300px" height="192px"></td>
+    <td><img src="demos/gama/0.7.png" width="300px" height="192px"></td>
+    </tr>
+
+    <tr>
+    <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/gama/0.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/gama/0.4.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/gama/0.7.wav" type="audio/wav"></audio></td>
+    </tr>
+
+  </table>
+  <br>
+  <table align = "center" style="text-align: center;">
+
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-centered">
+          <h2 class="title is-5">Control Prosodic Style with Different Tokens</h2>
+        </div>
+      </div>
+    </div>
+    <br>
+    <tr>
+      <td style="text-align: center;"><b>Ground Truth</b></th>
+      <td style="text-align: center;"><b>token 1</b></th>
+      <td style="text-align: center;"><b>token 2</b></th>
+      <td style="text-align: center;"><b>token 3</b></th>
+      <td style="text-align: center;"><b>token 4</b></th>
+    </tr>
+
+    <tr>
+      <td><img src="demos/tokens/GT.png" width="300px" height="192px"></td>
+      <td><img src="demos/tokens/1.png" width="300px" height="192px"></td>
+      <td><img src="demos/tokens/2.png" width="300px" height="192px"></td>
+      <td><img src="demos/tokens/3.png" width="300px" height="192px"></td>
+      <td><img src="demos/tokens/4.png" width="300px" height="192px"></td>
+      </tr>
+  
+      <tr>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/tokens/GT.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/tokens/1.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/tokens/2.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/tokens/3.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/tokens/4.wav" type="audio/wav"></audio></td>
+    </tr>
+
+    <tr>  
+      <td style="text-align: center;"><b>token 5</b></th>
+      <td style="text-align: center;"><b>token 6</b></th>
+      <td style="text-align: center;"><b>token 7</b></th>
+      <td style="text-align: center;"><b>token 8</b></th>
+      <td style="text-align: center;"><b>token 9</b></th>
+    </tr>
+
+    <tr>
+    <td><img src="demos/tokens/5.png" width="300px" height="192px"></td>
+    <td><img src="demos/tokens/6.png" width="300px" height="192px"></td>
+    <td><img src="demos/tokens/7.png" width="300px" height="192px"></td>
+    <td><img src="demos/tokens/8.png" width="300px" height="192px"></td>
+    <td><img src="demos/tokens/9.png" width="300px" height="192px"></td>
+    </tr>
+
+    <tr>
+    <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/tokens/5.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/tokens/6.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/tokens/7.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/tokens/8.wav" type="audio/wav"></audio></td>
+    <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/tokens/9.wav" type="audio/wav"></audio></td>
+    </tr>
+  </table>
+</section>
+<hr>
+<section class="hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-centered">
+        <h2 class="title is-3">Prosodic Transfer via Classifier-Free Guidance</h2>
+      </div>
+    </div>
+  </div>
+  <br>
+  <table align = "center" style="text-align: center;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-centered">
+          <h2 class="title is-5">DiffStyleTTS vs. FastSpeech2+GST Baseline: Prosodic Transfer</h2>
+        </div>
+      </div>
+    </div>
+    <br>
+    <tr>
+      <td style="text-align: center;"><b>Reference A</b></th>
+      <td style="text-align: center;"><b>Ground Truth</b></th>
+      <td style="text-align: center;"><b>DiffStyleTTS</b></th>
+      <td style="text-align: center;"><b>FastSpeech2+GST</b></th>
+    </tr>
+
+    <tr>
+      <td><img src="demos/transfer/A.png" width="300px" height="192px"></td>
+      <td><img src="demos/transfer/GT_1.png" width="300px" height="192px"></td>
+      <td><img src="demos/transfer/DiffStyleTTS_A.png" width="300px" height="192px"></td>
+      <td><img src="demos/transfer/fsgst_A.png" width="300px" height="192px"></td>
+    </tr>
+  
+    <tr>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/transfer/A.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/transfer/GT_1.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/transfer/DiffStyleTTS_A.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/transfer/fsgst_A.wav" type="audio/wav"></audio></td>
+    </tr>
+    <br>
+    <tr>
+      <td style="text-align: center;"><b>Reference B</b></th>
+      <td style="text-align: center;"><b>Ground Truth</b></th>
+      <td style="text-align: center;"><b>DiffStyleTTS</b></th>
+      <td style="text-align: center;"><b>FastSpeech2+GST</b></th>
+    </tr>
+
+    <tr>
+      <td><img src="demos/transfer/B.png" width="300px" height="192px"></td>
+      <td><img src="demos/transfer/GT_2.png" width="300px" height="192px"></td>
+      <td><img src="demos/transfer/DiffStyleTTS_B.png" width="300px" height="192px"></td>
+      <td><img src="demos/transfer/fsgst_B.png" width="300px" height="192px"></td>
+    </tr>
+  
+    <tr>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/transfer/B.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/transfer/GT_2.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/transfer/DiffStyleTTS_B.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/transfer/fsgst_B.wav" type="audio/wav"></audio></td>
+    </tr>
+  </table>
+  <br>
+  <table align = "center" style="text-align: center;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-centered">
+          <h2 class="title is-5">Controllable Prosodic Transfer Intensity via the Guiding Scale η</h2>
+        </div>
+      </div>
+    </div>
+    <br>
+    <tr>
+      <td style="text-align: center;"><b>Reference</b></th>
+      <td style="text-align: center;"><b>Ground Truth</b></th>
+      <td style="text-align: center;"><b>η=1.0</b></th>
+      <td style="text-align: center;"><b>η=2.0</b></th>
+    </tr>
+
+    <tr>
+      <td><img src="demos/transfer/A.png" width="300px" height="192px"></td>
+      <td><img src="demos/transfer/GT_3.png" width="300px" height="192px"></td>
+      <td><img src="demos/transfer/1.0.png" width="300px" height="192px"></td>
+      <td><img src="demos/transfer/2.0.png" width="300px" height="192px"></td>
+    </tr>
+  
+    <tr>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/transfer/A.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/transfer/GT_3.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/transfer/1.0.wav" type="audio/wav"></audio></td>
+      <td><audio controls="" style='display: inline-block; width: 200px; height: 50px;'><source src="demos/transfer/2.0.wav" type="audio/wav"></audio></td>
+    </tr>
+  </table>
+</section>
+<br>
+<br>
+<br>
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+</body>
+</html>
